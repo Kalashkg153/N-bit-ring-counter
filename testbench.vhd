@@ -31,12 +31,11 @@ ARCHITECTURE behavior OF tb_counter IS
    constant CLK_period : time := 10 ns;
 
 BEGIN
--- fpga4student.com FPGA projects, VHDL projects, Verilog projects
- -- Instantiate the Unit Under Test (UUT)
+
    uut: Structural_Ring_Counter 
  generic map 
  (
- N => 5-- change number of bits here
+ N => 5
  )
  PORT MAP (
           CLK => CLK,
@@ -44,7 +43,6 @@ BEGIN
           Q_OUT => Q_OUT
         );
 
-   -- Clock process definitions
    CLK_process :process
    begin
  CLK <= '0';
@@ -61,9 +59,7 @@ BEGIN
  RESET <= '1';
       wait for 100 ns; 
  RESET <= '0';
-      wait for CLK_period*10;
-
-      -- insert stimulus here 
+      wait for CLK_period*10; 
 
       wait;
    end process;
