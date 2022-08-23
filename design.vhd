@@ -1,7 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- STructurally
 entity Structural_Ring_Counter is
 generic ( N : integer:=4 );
 port ( 
@@ -16,7 +15,7 @@ architecture structural of Structural_Ring_Counter is
 signal not_QN: std_logic;
 signal D,Q : std_logic_vector(N-1 downto 0):=(others => '0');
 begin
--- fpga4student.com FPGA projects, VHDL projects, Verilog projects
+
  N_BIT_Ring_counter : for i in 0 to N-1 generate
     begin
         F0 : if ( i = 0 ) generate   -- First DFF
@@ -28,7 +27,7 @@ begin
  D => not_QN
  );
  end generate F0;
-        F1 : if ( i /= 0 ) generate  -- The rest of DFFs
+        F1 : if ( i /= 0 ) generate  
             begin U2 : entity work.DFF port map   
  (
  Q => Q(i),
